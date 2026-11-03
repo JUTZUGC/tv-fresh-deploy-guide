@@ -1,0 +1,103 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "tvfresh",
+    "nameCn": "tv-fresh",
+    "repoName": "tv-fresh-deploy-guide",
+    "oneLiner": "用 agent 通过 adb 卸掉小米电视的广告与预装，一条命令还能装回来",
+    "officialRepo": "https://github.com/wangrongding/tv-fresh",
+    "officialDocs": "https://github.com/wangrongding/tv-fresh#readme",
+    "stars": "545",
+    "license": "MIT",
+    "highlights": [
+      "免 root，只对当前用户卸载",
+      "一条命令可还原",
+      "附分任务说明与一键脚本",
+      "含固件逆向实录",
+      "agent 可读的技能结构",
+      "MIT，脚本可审"
+    ],
+    "mcpSupport": "以 Agent Skill 形式安装，本身不含 MCP；本仓库的 MCP 只提供安装步骤、风险提示与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-03",
+    "verification": [
+      [
+        "README 确认小米电视、ADB 方式与可还原说明",
+        "已核对 2026-11-03"
+      ],
+      [
+        "未实测连接电视与清理",
+        "说明 2026-11-03"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-03"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-03"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "steps": [
+        "git clone https://github.com/wangrongding/tv-fresh ~/.agents/skills/tv-fresh",
+        "adb connect <TV_IP>:5555",
+        "echo \"连接成功后按 SKILL.md 的清单逐项处理，保留还原记录\""
+      ],
+      "stepsPs": [
+        "git clone https://github.com/wangrongding/tv-fresh \"$HOME\\.agents\\skills\\tv-fresh\"",
+        "adb connect <TV_IP>:5555",
+        "Write-Host \"连接成功后按 SKILL.md 的清单逐项处理，保留还原记录\""
+      ],
+      "source": "https://github.com/wangrongding/tv-fresh#readme"
+    },
+    "pitfalls": [
+      "连不上：确认同 Wi-Fi、ADB 已开、IP 正确",
+      "unauthorized：去电视上点允许",
+      "重启后失效：部分固件会复位 ADB，重新开启",
+      "开不了机：不要卸载系统安装器与播放器",
+      "桌面异常：先还原桌面相关包，再换方案",
+      "遥控器失灵：换桌面后按键映射会变",
+      "还原失败：用 `install-existing` 逐条恢复"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/tv-fresh-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/tv-fresh-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "tv-fresh",
+    "小米电视 去广告",
+    "电视 清理 预装",
+    "ADB 电视 优化",
+    "MIUI TV 精简",
+    "免 root 电视",
+    "电视 换桌面",
+    "tv fresh 教程",
+    "小米电视 ADB",
+    "tv-fresh deploy guide"
+  ],
+  "topics": [
+    "android-tv",
+    "adb",
+    "debloat",
+    "xiaomi",
+    "agent-skills",
+    "tv-fresh"
+  ]
+}

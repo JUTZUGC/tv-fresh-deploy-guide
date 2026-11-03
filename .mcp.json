@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "tvfresh-guide": {
+      "command": "node",
+      "args": [
+        "mcp-server.mjs"
+      ]
+    }
+  }
+}
